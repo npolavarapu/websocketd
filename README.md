@@ -98,7 +98,7 @@ More Features
 -------------
 
 *   Very simple install. Just [download](https://github.com/joewalnes/websocketd/wiki/Download-and-install) the single executable for Linux, Mac or Windows and run it. No dependencies, no installers, no package managers, no external libraries. Suitable for development and production servers.
-*   Server side scripts can access details about the WebSocket HTTP request (e.g. remote host, query parameters, cookies, path, etc) via standard [CGI environment variables](https://github.com/joewalnes/websocketd/wiki/Environment-variables).
+*   Server side scripts can access details about the WebSocket HTTP request (e.g. remote host, query parameters, cookies, path, etc) via standard [CGI environment variables] using Joe Walnes environment variables (https://github.com/joewalnes/websocketd/wiki/Environment-variables).
 *   As well as serving websocket daemons it also includes a static file server and classic CGI server for convenience.
 *   Command line help available via `websocketd --help`.
 *   Includes [WebSocket developer console](https://github.com/joewalnes/websocketd/wiki/Developer-console) to make it easy to test your scripts before you've built a JavaScript frontend.
@@ -113,22 +113,3 @@ Example Project
 
 *   [Plot real time Linux CPU/IO/Mem stats to a dashboard using websocketd and vmstat](https://github.com/joewalnes/web-vmstats) _(for Linux)_
 *   [Remote JScript & VBScript code execution tool based on websocketd](https://github.com/dab00/ws-console) _(for Windows)_
-
-Got more examples? Open a pull request.
-
-My Other Projects
------------------
-
-*   [ReconnectingWebSocket](https://github.com/joewalnes/reconnecting-websocket) - Simplest way to add some robustness to your WebSocket connections.
-*   [Smoothie Charts](http://smoothiecharts.org/) - JavaScript charts for streaming data.
-*   Visit [The Igloo Lab](http://theigloolab.com/) to see and subscribe to other thingies I make.
-
-And [follow @joewalnes](https://twitter.com/joewalnes)!
-
-=======
-
-[![githalytics.com alpha](https://cruel-carlota.pagodabox.com/aeb01930fd25ab098615558d14e52ccb "githalytics.com")](http://githalytics.com/joewalnes/websocketd)
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/joewalnes/websocketd/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
