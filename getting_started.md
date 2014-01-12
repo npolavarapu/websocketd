@@ -77,7 +77,6 @@ See that `--devconsole` flag? That enables a console built into `websocketd` to 
 
 Point your browser to `http://localhost:8080/`, and you'll see the console. Press the checkbox to connect.
 
-[[console-count.png]]
 
 ## Building a web-page that connects to the WebSocket
 
@@ -137,7 +136,6 @@ __count.html__:
 Open this page in your web-browser. It will even work if you open it directly
 from disk using a `file://` URL.
 
-[[example-count.png]]
 ------------------------------------------------------------------------------------------------------------------------
 To help with development, debugging and testing, websocketd includes a developer console, making it easy to interact with your WebSocket endpoints without having to write JavaScript.
 
@@ -151,7 +149,6 @@ To test a WebSocket endpoint, open a web-browser and browse to its URL, replacin
 
 The console allows you to connect to WebSocket endpoint, send and receive test messages.
 
-[[websocketd-devconsole.png]]
 ------------------------------------------------------------------------------------------------------------------------
 WebSocket server programs often need additional data about the connection, beyond just the raw stream of messages - such as remote host, which web-page they're on, URL query parameters, cookies, etc.
 
