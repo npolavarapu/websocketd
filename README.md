@@ -5,7 +5,6 @@ websocketd
 
 WebSocket-capable applications can now be built very easily. As long as you can write an executable program that reads `STDIN` and writes to `STDOUT`, you can build a WebSocket server. Do it in Python, Ruby, Perl, Bash, .NET, C, Go, PHP, Java, Clojure, Scala, Groovy, Expect, Awk, VBScript, Haskell, Lua, R, whatever! No networking libraries necessary.
 
--[@joewalnes](https://twitter.com/joewalnes)
 
 Details
 -------
@@ -22,7 +21,16 @@ Any text printed by the process to `STDOUT` shall be sent as a WebSocket message
 Download
 --------
 
-**[Download for Linux, OS X and Windows](https://github.com/joewalnes/websocketd/wiki/Download-and-install)**
+**[Download for Linux, OS X and Windows](https://drive.google.com/folderview?id=0B016Gbv5PKZARTMzcC1oNEJkclk&usp=sharing)**
+websocketd is distributed as a single executable binary.
+
+To run:
+
+Download the platform specific application.
+Make it executable: chmod +x websocketd. (Not required on Windows)
+Add it to your PATH.
+
+to run: websocketd --help
 
 
 Quickstart
@@ -94,22 +102,8 @@ __count.html__:
 Open this page in your web-browser. It will even work if you open it directly
 from disk using a `file://` URL.
 
-More Features
--------------
-
-*   Very simple install. Just [download](https://github.com/joewalnes/websocketd/wiki/Download-and-install) the single executable for Linux, Mac or Windows and run it. No dependencies, no installers, no package managers, no external libraries. Suitable for development and production servers.
-*   Server side scripts can access details about the WebSocket HTTP request (e.g. remote host, query parameters, cookies, path, etc) via standard [CGI environment variables] using Joe Walnes environment variables (https://github.com/joewalnes/websocketd/wiki/Environment-variables).
-*   As well as serving websocket daemons it also includes a static file server and classic CGI server for convenience.
-*   Command line help available via `websocketd --help`.
-*   Includes [WebSocket developer console](https://github.com/joewalnes/websocketd/wiki/Developer-console) to make it easy to test your scripts before you've built a JavaScript frontend.
 
 User Manual
 -----------
 
-**[More documentation in the user manual](https://github.com/joewalnes/websocketd/wiki)**
-
-Example Project
----------------
-
-*   [Plot real time Linux CPU/IO/Mem stats to a dashboard using websocketd and vmstat](https://github.com/joewalnes/web-vmstats) _(for Linux)_
-*   [Remote JScript & VBScript code execution tool based on websocketd](https://github.com/dab00/ws-console) _(for Windows)_
+**[More documentation in the user manual, most commands based off of Joe Walnes websocket server commands](https://github.com/joewalnes/websocketd/wiki)**
