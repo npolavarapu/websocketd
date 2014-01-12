@@ -71,7 +71,7 @@ Options:
               fatal}
 
 
-)
+` )
 
 func PrintHelp() {
 	msg := strings.Trim(help, " \n")
