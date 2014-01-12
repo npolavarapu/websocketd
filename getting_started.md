@@ -444,3 +444,32 @@ func main() {
 }
 ```
 Make sure you run `go get` to fetch the dependency.
+------------------------------------------------------------------------------------------------------------------------
+Install Go
+----------
+
+Use apt, homebrew etc or install directly from source. Follow the instructions at http://golang.org/doc/install.
+
+Building Websocketd
+-------------------
+
+Make sure you have set your `$GOPATH` to somewhere, e.g: `$HOME/gocode`:
+
+```bash
+$ mkdir -p $GOPATH/src/github.com/npolavarapu
+$ cd $GOPATH/src/github.com/npolavarapu
+$ git clone https://github.com/npolvarapu/websocketd
+$ cd websocketd
+```
+
+Build:
+
+```bash
+$ make
+```
+
+Run:
+
+```bash
+$ ./websocketd
+```
