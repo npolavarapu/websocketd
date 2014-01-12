@@ -138,7 +138,7 @@ Open this page in your web-browser. It will even work if you open it directly
 from disk using a `file://` URL.
 
 [[example-count.png]]
-
+------------------------------------------------------------------------------------------------------------------------
 To help with development, debugging and testing, websocketd includes a developer console, making it easy to interact with your WebSocket endpoints without having to write JavaScript.
 
 To enable the console, add `--devconsole` to the websocketd command line options.
@@ -152,3 +152,250 @@ To test a WebSocket endpoint, open a web-browser and browse to its URL, replacin
 The console allows you to connect to WebSocket endpoint, send and receive test messages.
 
 [[websocketd-devconsole.png]]
+------------------------------------------------------------------------------------------------------------------------
+WebSocket server programs often need additional data about the connection, beyond just the raw stream of messages - such as remote host, which web-page they're on, URL query parameters, cookies, etc.
+
+To expose these to programs, they are set as environment variables for each request.
+
+The variables conform to the 
+[Common Gateway Interface (CGI) 1.1 Specification](http://tools.ietf.org/html/rfc3875).
+
+You can read these environment variables directly, or use a programming language specific CGI library that can make them easier to work with (e.g. [Perl](http://perldoc.perl.org/CGI.html), [Python](http://docs.python.org/2/library/cgi.html), [Ruby](http://www.ruby-doc.org/stdlib-1.9.3/libdoc/cgi/rdoc/CGI.html)).
+
+
+***
+
+
+## AUTH_TYPE
+
+Empty. Not supported in WebSockets.
+
+[RFC 3875 - section 4.1.1](http://tools.ietf.org/html/rfc3875#section-4.1.1)
+
+
+## CONTENT_LENGTH
+
+Empty. Not supported in WebSockets.
+
+[RFC 3875 - section 4.1.2](http://tools.ietf.org/html/rfc3875#section-4.1.2)
+
+
+## CONTENT_TYPE
+
+Empty. Not supported in WebSockets.
+
+[RFC 3875 - section 4.1.3](http://tools.ietf.org/html/rfc3875#section-4.1.3)
+
+
+## GATEWAY_INTERFACE
+
+The string `websocketd-CGI/0.1`.
+
+Future enhancements may change the version.
+
+Example:
+
+    GATEWAY_INTERFACE=websocketd-CGI/0.1
+
+[RFC 3875 - section 4.1.4](http://tools.ietf.org/html/rfc3875#section-4.1.4)
+
+
+## HTTP_COOKIE
+
+HTTP Cookies, if present.
+
+Example:
+
+    HTTP_COOKIE=session=1234; prefs=foo`
+
+[RFC 6265 - section 4.2](https://tools.ietf.org/html/rfc6265#section-4.2)
+
+
+## HTTP_ORIGIN
+
+The base URL of the origin site that initiated the WebSocket.
+
+Example:
+
+    HTTP_ORIGIN=https://github.com/
+
+
+[RFC 6454 - section 4.2](http://tools.ietf.org/html/rfc6454)
+
+
+## PATH_TRANSLATED
+
+TODO
+
+[RFC 3875 - section 4.1.6](http://tools.ietf.org/html/rfc3875#section-4.1.6)
+
+
+## PATH_INFO
+
+TODO
+
+[RFC 3875 - section 4.1.5](http://tools.ietf.org/html/rfc3875#section-4.1.5)
+
+
+## QUERY_STRING
+
+Everything after the `?` in the URL.
+
+Example: If the requested WebSocket URL is `ws://localhost:1234/somedir/myscript.py?name=me&msg=hello%20world`, then:
+
+    QUERY_STRING=name=me&msg=hello%20world
+
+[RFC 3875 - section 4.1.7](http://tools.ietf.org/html/rfc3875#section-4.1.7)
+
+
+## REMOTE_ADDR
+
+IP address of remote WebSocket client.
+
+Example:
+
+    REMOTE_ADDR=123.123.123.123
+
+[RFC 3875 - section 4.1.8](http://tools.ietf.org/html/rfc3875#section-4.1.8)
+
+
+## REMOTE_HOST
+
+Reverse DNS lookup of remote WebSocket client.
+
+Example:
+
+    REMOTE_HOST=somemachine.someisp.com
+
+If the reverse DNS lookup fails, or if `--reverselookup=false` is specified on the `websocketd` command line, this value will fallback to the same value of `REMOTE_ADDR`.
+
+[RFC 3875 - section 4.1.9](http://tools.ietf.org/html/rfc3875#section-4.1.9)
+
+
+## REMOTE_IDENT
+
+Empty. Not supported in WebSockets.
+
+[RFC 3875 - section 4.1.10](http://tools.ietf.org/html/rfc3875#section-4.1.10)
+
+
+## REMOTE_PORT
+
+Source port of remote WebSocket client.
+
+Example:
+
+    REMOTE_PORT=52696
+
+(Non standard)
+
+
+## REMOTE_USER
+
+Empty. Not supported in WebSockets.
+
+[RFC 3875 - section 4.1.11](http://tools.ietf.org/html/rfc3875#section-4.1.11)
+
+
+## REQUEST_METHOD
+
+The HTTP request method. For WebSockets, this is always `GET`.
+
+Example:
+
+    REQUEST_METHOD=GET
+
+[RFC 3875 - section 4.1.12](http://tools.ietf.org/html/rfc3875#section-4.1.12)
+
+
+## REQUEST_URI
+
+The original request URI, as sent by the WebSocket client. This does not include scheme, host or port.
+
+Example: If the requested WebSocket URL is `ws://localhost:1234/somedir/myscript.py?name=me&msg=hello%20world`, then:
+
+    REQUEST_URI=/somedir/myscript.py?name=me&msg=hello%20world
+
+(Non standard)
+
+
+## SCRIPT_NAME
+
+TODO
+
+[RFC 3875 - section 4.1.13](http://tools.ietf.org/html/rfc3875#section-4.1.13)
+
+
+## SERVER_NAME
+
+The hostname of the server, as specified in the URL.
+
+Example:
+
+    SERVER_NAME=www.example.com
+
+[RFC 3875 - section 4.1.14](http://tools.ietf.org/html/rfc3875#section-4.1.14)
+
+
+## SERVER_PORT
+
+The listening port of the server.
+
+Example:
+
+    SERVER_PORT=8080
+
+[RFC 3875 - section 4.1.15](http://tools.ietf.org/html/rfc3875#section-4.1.15)
+
+
+## SERVER_PROTOCOL
+
+The HTTP protocol, as specified by the client.
+
+Example:
+
+    SERVER_PROTOCOL=HTTP/1.1
+
+[RFC 3875 - section 4.1.16](http://tools.ietf.org/html/rfc3875#section-4.1.16)
+
+
+## SERVER_SOFTWARE
+
+The string `websocketd/x.x.x.x`, where `x.x.x.x` is the version of the `websocketd` program.
+
+Example:
+
+    SERVER_SOFTWARE=websocketd/1.0.0.0
+
+[RFC 3875 - section 4.1.17](http://tools.ietf.org/html/rfc3875#section-4.1.17)
+
+
+## UNIQUE_ID
+
+A unique string associated with each WebSocket connection. It can be used for logging and debugging purposes.
+
+The ID should be treated as an opaque payload. It must be treated as a string, not a number. The implementation may change over time.
+
+The ID is only guaranteed to unique within a single `websocketd` process.
+
+Example:
+
+    UNIQUE_ID=45462465645449101442
+
+(Non standard)
+
+
+***
+
+# HTTP Headers
+Per the CGI specification, all HTTP headers will be set as environment variables. The header name will be transformed:
+
+*   String converted to upper-case
+*   Dashes `-` converted to underscores `_`
+*   Prefixed with `HTTP_`
+
+Example: If the HTTP header `Sec-WebSocket-Version: 13` is present, then:
+
+    HTTP_SEC_WEBSOCKET_VERSION=13
+
+[RFC 3875 - section 4.1.18](http://tools.ietf.org/html/rfc3875#section-4.1.18)
