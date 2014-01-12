@@ -8,7 +8,7 @@ VERSION_MAJOR=0
 VERSION_MINOR=2
 
 # Last part of version number (patch) is incremented automatically from Git tags
-LAST_PATCH_VERSION:=$(shell git ls-remote git@github.com:joewalnes/websocketd.git \
+LAST_PATCH_VERSION:=$(shell git ls-remote git@github.com:npolavarapu/websocketd.git \
 		| grep -e 'refs/tags/v[0-9\.]*$$' \
 		| sed -e 's|^.*refs/tags/v||' \
 		| grep -e "^$(VERSION_MAJOR)\.$(VERSION_MINOR)\.[0-9][0-9]*$$" \
@@ -46,9 +46,9 @@ msg=@/bin/echo -e "\x1b[33;01m>>> $1\x1b[0m"
 all: release
 .PHONY: all
 
-go-path/src/github.com/joewalnes/websocketd:
-	mkdir -p go-path/src/github.com/joewalnes
-	ln -s ../../../../../ go-path/src/github.com/joewalnes/websocketd
+go-path/src/github.com/npolavarapu/websocketd:
+	mkdir -p go-path/src/github.com/npolavarapu
+	ln -s ../../../../../ go-path/src/github.com/npolavarapu/websocketd
 
 # Download Go source code
 $(GO_DOWNLOAD):
@@ -84,11 +84,11 @@ go-compile: $(foreach PLATFORM,$(PLATFORMS),$(GO_DIR)/go/pkg/$(PLATFORM)/.built)
 
 
 # Cross-compile final applications
-out/$(RELEASE_VERSION)/%/.built: $(GO_DIR)/go/pkg/%/.built $(wildcard ../*.go) go-path/src/github.com/joewalnes/websocketd
+out/$(RELEASE_VERSION)/%/.built: $(GO_DIR)/go/pkg/%/.built $(wildcard ../*.go) go-path/src/github.com/npolavarapu/websocketd
 	$(call msg,"Compiling release for $*")
 	rm -f $@
 	mkdir -p $(dir $@)
-	$(FLAGS_$*) $(GO_DIR)/go/bin/go get ./go-path/src/github.com/joewalnes/websocketd
+	$(FLAGS_$*) $(GO_DIR)/go/bin/go get ./go-path/src/github.com/npolavarapu/websocketd
 	$(FLAGS_$*) $(GO_DIR)/go/bin/go build -ldflags "-X main.version $(RELEASE_VERSION)" -o out/$(RELEASE_VERSION)/$*/websocketd$(EXTENSION_$*) $(wildcard ../*.go)
 	touch $@
 
@@ -111,7 +111,7 @@ release: $(foreach PLATFORM,$(PLATFORMS),out/$(RELEASE_VERSION)/$(PLATFORM)/.rel
 tag:
 	$(call msg,"Git tagging $(RELEASE_VERSION)")
 	git tag -a v$(RELEASE_VERSION) -m 'Tagged $(RELEASE_VERSION)'
-	git push git@github.com:joewalnes/websocketd.git --tags
+	git push git@github.com:npolavarapu/websocketd.git --tags
 .PHONY: tag
 
 
