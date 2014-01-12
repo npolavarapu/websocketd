@@ -35,8 +35,7 @@ for COUNT in $(seq 1 10); do
 done
 ```
 
-> Don't like bash? The [examples](https://github.com/joewalnes/websocketd/tree/master/examples) directory contains the same program in [Python](https://raw.github.com/joewalnes/websocketd/master/examples/python/count.py), [Ruby](https://raw.github.com/joewalnes/websocketd/master/examples/ruby/count.rb), [Perl](https://raw.github.com/joewalnes/websocketd/master/examples/perl/count.pl) and [PHP](https://raw.github.com/joewalnes/websocketd/master/examples/php/count.php). If you're on Windows, there's also [JScript](https://raw.github.com/joewalnes/websocketd/master/examples/windows-jscript/count.js) and
-[VBScript](https://raw.github.com/joewalnes/websocketd/master/examples/windows-vbscript/count.vbs).
+If you don't like bash use another programming language.
 
 Before turning it into a WebSocket server, let's test it from the command line. The beauty of `websocketd` is servers work equally well on the command line as they do in the server - with no modifications required.
 
