@@ -3,13 +3,11 @@ This is a quick tutorial to get started with `websocketd`. By the end of it, you
 *   an endpoint that slowly counts to 10 on the server
 *   a web-page that displays the current count from the server
 
-> Impatient? Read the [ten SECOND tutorial](Ten-second-tutorial) instead!
-
 This tutorial assumes you're familiar with the basics of web development (HTML, JavaScript) and the concept of [WebSockets](http://www.html5rocks.com/en/tutorials/websockets/basics/).
 
 Remember, `websocketd` allows WebSocket end points to be written in virtually any programming language. In this tutorial, we're going to use a shell script written in bash to keep things simple.
 
-Before you get started, make sure you have [downloaded and installed](Download-and-install) `websocketd`.
+Before you get started, make sure you have downloaded and installed `websocketd`.
 
 Let's go!
 
