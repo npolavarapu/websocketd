@@ -106,4 +106,4 @@ from disk using a `file://` URL.
 User Manual
 -----------
 
-**[More documentation in the user manual, most commands based off of Joe Walnes websocket server commands](https://github.com/joewalnes/websocketd/wiki)**
+go to the getting_started.md and help.go
