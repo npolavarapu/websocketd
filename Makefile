@@ -1,8 +1,3 @@
-# Copyright 2013 Joe Walnes and the websocketd team.
-# All rights reserved.
-# Use of this source code is governed by a BSD-style
-# license that can be found in the LICENSE file.
-
 # Self contained Go build file that will download and install (locally) the correct
 # version of Go, and build our programs. Go does not need to be installed on the
 # system (and if it already is, it will be ignored).
@@ -14,15 +9,15 @@ GO_VERSION=1.1.2.linux-amd64
 GO_DOWNLOAD_URL=http://go.googlecode.com/files/go$(GO_VERSION).tar.gz
 
 # Build websocketd binary
-websocketd: go $(wildcard *.go) $(wildcard libwebsocketd/*.go) go-workspace/src/github.com/joewalnes/websocketd
-	./go get ./go-workspace/src/github.com/joewalnes/websocketd
-	./go fmt github.com/joewalnes/websocketd/libwebsocketd github.com/joewalnes/websocketd
+websocketd: go $(wildcard *.go) $(wildcard libwebsocketd/*.go) go-workspace/src/github.com/npolavarapu/websocketd
+	./go get ./go-workspace/src/github.com/npolavarapu/websocketd
+	./go fmt github.com/npolavarapu/websocketd/libwebsocketd github.com/npolavarapu/websocketd
 	./go build
 
 # Create local go workspace and symlink websocketd into the right location.
 go-workspace/src/github.com/joewalnes/websocketd:
-	mkdir -p go-workspace/src/github.com/joewalnes
-	ln -s ../../../../ go-workspace/src/github.com/joewalnes/websocketd
+	mkdir -p go-workspace/src/github.com/npolavarapu
+	ln -s ../../../../ go-workspace/src/github.com/npolavarapu/websocketd
 
 # Setup ./go wrapper to use local GOPATH/GOROOT.
 go: go-v$(GO_VERSION)/.done
