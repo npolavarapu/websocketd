@@ -1,10 +1,4 @@
 #!/bin/bash
-
-# Copyright 2013 Jeroen Janssens
-# All rights reserved.
-# Use of this source code is governed by a BSD-style
-# license that can be found in the LICENSE file.
-
 # Run a simple chat server: websocketd --devconsole --port 8080 ./chat.sh
 #
 # Please note that this example requires GNU tail, which is not the default
