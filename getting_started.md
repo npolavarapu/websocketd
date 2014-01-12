@@ -138,3 +138,17 @@ Open this page in your web-browser. It will even work if you open it directly
 from disk using a `file://` URL.
 
 [[example-count.png]]
+
+To help with development, debugging and testing, websocketd includes a developer console, making it easy to interact with your WebSocket endpoints without having to write JavaScript.
+
+To enable the console, add `--devconsole` to the websocketd command line options.
+
+e.g.
+
+    websocketd --port=1234 --dir=examples --devconsole
+
+To test a WebSocket endpoint, open a web-browser and browse to its URL, replacing the `ws://` URL prefix with `http://`.
+
+The console allows you to connect to WebSocket endpoint, send and receive test messages.
+
+[[websocketd-devconsole.png]]
