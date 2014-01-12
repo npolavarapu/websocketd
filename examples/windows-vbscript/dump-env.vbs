@@ -1,9 +1,3 @@
-' Copyright 2013 Joe Walnes and the websocketd team.
-' All rights reserved.
-' Use of this source code is governed by a BSD-style
-' license that can be found in the LICENSE file.
-
-
 ' Standard CGI(ish) environment variables, as defined in
 ' http://tools.ietf.org/html/rfc3875
 names = Array(_
